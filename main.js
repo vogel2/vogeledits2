@@ -1,9 +1,15 @@
-const menuToggler = document.querySelector('.navbar-toggler')
+const menuTogglers = document.querySelectorAll('.navbar-toggler')
 const drawer = document.querySelector('.navbar-drawer')
 
-menuToggler.addEventListener('click', () => drawer.toggleAttribute('enabled'))
+menuTogglers.forEach(toggler =>
+    toggler.addEventListener('click', () => drawer.toggleAttribute('enabled')))
 
-const themeToggler = document.querySelector('.theme-toggler')
-const html = document.querySelector('html')
+const navbarLinks = document.querySelectorAll('.navbar-links')
 
-themeToggler.addEventListener('click', () => html.classList.toggle('light-theme'))
+navbarLinks.forEach(link =>
+    link.addEventListener('click', () => drawer.attributes.removeNamedItem('enabled')))
+
+// const themeToggler = document.querySelector('.theme-toggler')
+// const html = document.querySelector('html')
+
+// themeToggler.addEventListener('click', () => html.classList.toggle('light-theme'))

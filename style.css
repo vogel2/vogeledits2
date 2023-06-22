@@ -14,6 +14,8 @@
 :root {
     --transition-type: cubic-bezier(0.44, 0.31, 0.4, 0.63);
     --primary-color: hsl(241, 100%, 58%);
+    --dark-color: hsl(0, 0%, 12%);
+    --light-color: hsl(0, 0%, 96%);
 }
 
 /* #region Generics */
@@ -28,6 +30,8 @@
 html {
     color-scheme: dark light;
     scroll-behavior: smooth;
+    background: var(--dark-color);
+    color: var(--light-color);
 }
 
 html.light-theme {
@@ -40,12 +44,6 @@ body {
 
 .container-inline {
     padding-inline: 8%;
-}
-
-@media (width < 525px) {
-    .container-inline {
-        padding-inline: 16px;
-    }
 }
 
 .container-block {
@@ -71,12 +69,17 @@ button {
     font-family: "SF Pro";
 }
 
+hr {
+    opacity: .4;
+}
+
 /* #endregion */
 
 /* #region Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-links ul {
@@ -111,39 +114,6 @@ button {
     display: none;
 }
 
-@media (width < 767px) {
-    .navbar-links {
-        display: none;
-    }
-
-    :is(.navbar-drawer, .navbar-toggler) {
-        display: block;
-        background: var(--primary-color);
-    }
-
-    .navbar-drawer>.navbar-links {
-        display: block;
-    }
-
-    .navbar-drawer {
-        --drawer-height: 400px;
-        display: block;
-        width: 100%;
-        height: var(--drawer-height);
-
-        position: absolute;
-        top: calc(var(--drawer-height) * -1);
-        left: 0;
-
-        transition: top 500ms ease-in;
-    }
-
-    .navbar-drawer[enabled] {
-        top: 0;
-    }
-
-}
-
 /* #endregion */
 
 /* #region Hero Section */
@@ -154,7 +124,8 @@ button {
 }
 
 #hero h1 {
-    font-size: 48px;
+    font-size: clamp(2.25rem, calc(2.03rem + 1.25vw), 3.00rem);
+    ;
     width: min(800px, 100%);
     line-height: 1.5;
 }
@@ -191,10 +162,6 @@ button {
     color: grey;
 }
 
-hr {
-    opacity: .4;
-}
-
 /* #endregion */
 
 /* #region Videos Section */
@@ -212,9 +179,13 @@ hr {
     display: inline-block;
     width: 32px;
     height: 2px;
-    background: white;
+    background: var(--light-color);
     margin-left: 8px;
     margin-bottom: 4px;
+}
+
+.light-theme #videos section h2::after {
+    background: var(--dark-color);
 }
 
 .grid-container {
@@ -239,7 +210,7 @@ hr {
 }
 
 .grid-body {
-    font-size: 20px;
+    font-size: clamp(1rem, calc(0.93rem + 0.42vw), 1.25rem);
     margin-top: 16px;
     text-align: right;
 }
@@ -250,7 +221,6 @@ hr {
 
 /* #endregion */
 
-
 /* #region Footer */
 footer {
     display: flex;
@@ -260,7 +230,7 @@ footer {
 }
 
 footer>div {
-    font-size: 20px;
+    font-size: clamp(1rem, calc(0.93rem + 0.42vw), 1.25rem);
 }
 
 .contact-media ul li {
@@ -285,10 +255,94 @@ footer>div {
 
 /* #endregion */
 
-/* .theme-toggler {
-    position: fixed;
-    top: 32px;
-    right: 32px;
-    background: red;
-    padding: 16px 32px;
-} */
+/* #region Media Queries */
+
+@media (width < 767px) {
+    .navbar-links {
+        display: none;
+    }
+
+    :is(.navbar-drawer, .navbar-toggler) {
+        display: block;
+        background: var(--primary-color);
+    }
+
+    .navbar-toggler {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .navbar-toggler span {
+        display: block;
+        width: 70%;
+        height: 1.5px;
+        background: var(--light-color);
+    }
+
+    .navbar-drawer>.navbar-links {
+        display: block;
+    }
+
+    .navbar-drawer {
+        --drawer-height: 400px;
+
+        display: block;
+        width: 100%;
+        height: var(--drawer-height);
+
+        position: absolute;
+        top: calc(var(--drawer-height) * -1);
+        left: 0;
+
+        transition: top 250ms var(--transition-type);
+    }
+
+    .navbar-drawer[enabled] {
+        top: 0;
+    }
+
+    .navbar-drawer .navbar-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .navbar-drawer .navbar-toggler {
+        background: var();
+        position: absolute;
+        top: 32px;
+        right: 32px;
+    }
+
+    .navbar-drawer .navbar-toggler span {
+        position: absolute;
+        width: 50%;
+        rotate: 45deg;
+    }
+
+    .navbar-drawer .navbar-toggler span:last-child {
+        rotate: -45deg;
+    }
+
+    .light-theme .navbar-drawer .navbar-toggler {
+        background: black;
+    }
+}
+
+@media (width < 525px) {
+    .container-inline {
+        padding-inline: 16px;
+    }
+
+    .navbar-drawer .navbar-toggler {
+        right: 16px;
+    }
+}
+
+/* #endregion */
