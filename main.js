@@ -9,7 +9,35 @@ const navbarLinks = document.querySelectorAll('.navbar-links')
 navbarLinks.forEach(link =>
     link.addEventListener('click', () => drawer.attributes.removeNamedItem('enabled')))
 
-// const themeToggler = document.querySelector('.theme-toggler')
-// const html = document.querySelector('html')
+// Fade-in animation: create the observer
+var observer = new IntersectionObserver((entries) => {
+    applyAnimation(entries);
+});
 
-// themeToggler.addEventListener('click', () => html.classList.toggle('light-theme'))
+function applyAnimation(entries) {
+    entries.forEach((entry) => {
+        entry.target.classList.toggle("slide-up", entry.isIntersecting);
+        if (entry.intersectionRatio > 0) observer.unobserve(entry.target);
+    });
+}
+
+function stopAnimation(entries) {
+    entries.forEach((entry) => observer.unobserve(entry.target));
+}
+
+// Observe the elements
+[
+    ...document.querySelectorAll(".hero-item"),
+    ...document.querySelectorAll(".grid-image"),
+    ...document.querySelectorAll(".grid-body"),
+].forEach((element) => {
+    observer.observe(element);
+});
+
+window.onload = function () {
+    const styleSheet = document.styleSheets[0];
+    const rule = styleSheet.cssRules[23];
+    setTimeout(() => {
+        rule.style.width = '100%';
+    }, 2000);
+};
