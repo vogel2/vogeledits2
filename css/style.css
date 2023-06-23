@@ -150,6 +150,28 @@ hr {
     gap: 64px;
 }
 
+.hero-item:first-of-type {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-avatar {
+    display: flex;
+    justify-self: end;
+    align-items: center;
+    width: min(300px, 100%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.hero-avatar video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .hero-item p {
     font-size: 15px;
 }
@@ -273,6 +295,13 @@ footer>div {
 /* #endregion */
 
 /* #region Media Queries */
+
+@media (width < 1024px) {
+    .hero-item:first-of-type {
+        flex-direction: column;
+    }
+}
+
 
 @media (width < 767px) {
     .navbar-links {
