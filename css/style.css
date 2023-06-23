@@ -14,6 +14,7 @@
 :root {
     --transition-type: cubic-bezier(0.44, 0.31, 0.4, 0.63);
     --primary-color: hsl(241, 100%, 58%);
+    --primary-hover: hsl(241, 74%, 48%);
     --dark-color: hsl(0, 0%, 0%);
     --light-color: hsl(0, 0%, 96%);
 }
@@ -270,6 +271,65 @@ footer>div {
 
 .contact-media ul li:hover::after {
     width: 32px;
+}
+
+/* #endregion */
+
+/* #region Get in touch Section */
+
+#get-in-touch {
+    margin-top: 48px;
+}
+
+#get-in-touch h2 {
+    margin-inline: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 48px;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 64px;
+}
+
+.form-group>input {
+    all: unset;
+    font-family: "SF Pro";
+    flex: 1 1 auto;
+    padding: 16px;
+    border-bottom: 2px solid grey;
+
+    transition: border-bottom 500ms var(--transition-type);
+}
+
+.form-group>input:focus {
+    border-bottom: 2px solid var(--light-color);
+}
+
+.form-group:has(button[type="submit"]) {
+    margin-inline: auto;
+}
+
+.form-group button[type="submit"] {
+    padding: 16px 32px;
+    background: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-group button[type="submit"]:hover {
+    background: var(--primary-hover);
+}
+
+.form-group button[type="submit"]:disabled {
+    cursor: not-allowed;
+    background: grey;
 }
 
 /* #endregion */

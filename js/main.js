@@ -30,6 +30,7 @@ function stopAnimation(entries) {
     ...document.querySelectorAll(".hero-item"),
     ...document.querySelectorAll("#videos section h2"),
     ...document.querySelectorAll(".grid-item > div"),
+    ...document.querySelectorAll("#get-in-touch > *"),
 ].forEach((element) => {
     observer.observe(element);
 });
@@ -41,3 +42,19 @@ window.onload = function () {
     setTimeout(() => rule.style.width = '100%'
         , 1500);
 };
+
+// const inputs = document.querySelectorAll("#get-in-touch form input")
+
+// inputs.forEach(input =>
+//     input.addEventListener('change', _ =>
+//         checkFormValidity()
+//     )
+// )
+
+// function checkFormValidity() {
+//     const form = document.querySelector("#get-in-touch form")
+//     const submitButton = document.querySelector("#get-in-touch button[type='submit']")
+//     if (!form.checkValidity())
+//         submitButton.setAttribute('disabled', true)
+//     submitButton.removeAttribute('disabled');
+// }
