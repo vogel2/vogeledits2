@@ -14,7 +14,7 @@
 :root {
     --transition-type: cubic-bezier(0.44, 0.31, 0.4, 0.63);
     --primary-color: hsl(241, 100%, 58%);
-    --dark-color: hsl(0, 0%, 12%);
+    --dark-color: hsl(0, 0%, 0%);
     --light-color: hsl(0, 0%, 96%);
 }
 
