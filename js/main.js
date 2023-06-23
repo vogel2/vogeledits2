@@ -28,16 +28,16 @@ function stopAnimation(entries) {
 // Observe the elements
 [
     ...document.querySelectorAll(".hero-item"),
-    ...document.querySelectorAll(".grid-image"),
-    ...document.querySelectorAll(".grid-body"),
+    ...document.querySelectorAll("#videos section h2"),
+    ...document.querySelectorAll(".grid-item > div"),
 ].forEach((element) => {
     observer.observe(element);
 });
 
+// Blue line animation
 window.onload = function () {
     const styleSheet = document.styleSheets[0];
     const rule = styleSheet.cssRules[23];
-    setTimeout(() => {
-        rule.style.width = '100%';
-    }, 2000);
+    setTimeout(() => rule.style.width = '100%'
+        , 1500);
 };

@@ -1,12 +1,12 @@
 /* #region Imports */
 @font-face {
     font-family: "SF Pro";
-    src: url("./assets/fonts/sf/SFPRODISPLAYREGULAR.OTF");
+    src: url("../assets/fonts/sf/SFPRODISPLAYREGULAR.OTF");
 }
 
 @font-face {
     font-family: "NY Medium";
-    src: url("./assets/fonts/ny/NewYorkExtraLarge-Medium.otf");
+    src: url("../assets/fonts/ny/NewYorkExtraLarge-Medium.otf");
 }
 
 /* #endregion */
@@ -143,10 +143,6 @@ hr {
     height: 4px;
     background: var(--primary-color);
     transition: all 500ms var(--transition-type);
-}
-
-#hero h1 span:hover::after {
-    width: 100%;
 }
 
 .hero-item {
@@ -310,7 +306,7 @@ footer>div {
     }
 
     .navbar-drawer {
-        --drawer-height: 400px;
+        --drawer-height: 300px;
 
         display: block;
         width: 100%;
@@ -320,14 +316,18 @@ footer>div {
         top: calc(var(--drawer-height) * -1);
         left: 0;
 
-        transition: top 250ms var(--transition-type);
+        border-bottom: 64px solid var(--light-color);
+
+        transition: all 250ms var(--transition-type);
     }
 
     .navbar-drawer[enabled] {
         top: 0;
+        box-shadow: 0 0 1200px 1200px hsl(0, 0%, 12%, 0.9);
     }
 
     .navbar-drawer .navbar-links {
+        margin-top: 32px;
         display: flex;
         justify-content: center;
         align-items: center;
