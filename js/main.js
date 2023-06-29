@@ -9,7 +9,11 @@ const navbarLinks = document.querySelectorAll('.navbar-links')
 
 // Closes the drawer on link click event
 navbarLinks.forEach(link =>
-    link.addEventListener('click', () => drawer.attributes.removeNamedItem('enabled')))
+    link.addEventListener('click', function () {
+        if (drawer.attributes.getNamedItem('enabled'))
+            drawer.attributes.removeNamedItem('enabled')
+        else return;
+    }))
 
 // Fade-in animation: create the observer
 const observer = new IntersectionObserver((entries) =>
@@ -22,9 +26,10 @@ const observer = new IntersectionObserver((entries) =>
 // Observe the elements
 const elements = [
     ...document.querySelectorAll(".hero-item"),
-    ...document.querySelectorAll("#videos section h2"),
+    ...document.querySelectorAll("section h2"),
     ...document.querySelectorAll(".grid-item > div"),
     ...document.querySelectorAll("#get-in-touch > *"),
+    ...document.querySelectorAll("hr:not(:last-of-type)"),
 ]
 
 elements.forEach((element) => observer.observe(element));
@@ -32,8 +37,28 @@ elements.forEach((element) => observer.observe(element));
 // Blue line animation
 const styleSheet = document.styleSheets[0];
 const rule = styleSheet.cssRules[23];
-setTimeout(() => rule.style.width = '100%', 1500);
+
+setTimeout(
+    () =>
+        /* 
+        if screen width is less than 445px
+        then: 7 characters
+        else: All the name 
+        */
+        rule.style.width =
+        screen.width < 445 ? '7ch' : '100%',
+    1500 // Milliseconds
+);
 
 // Disabling right click on hero GIF
 const video = document.querySelector('.hero-avatar video')
 video.addEventListener('contextmenu', e => e.preventDefault())
+
+// Shorts
+const shortsVideo = document.querySelectorAll('#shorts video')
+shortsVideo.forEach(video => {
+    video.addEventListener('fullscreenchange', () => {
+        video.classList.toggle('contained')
+    })
+})
+video.addEventListener('fullscreenchange', e => e.preventDefault())

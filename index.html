@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vogeau Edits</title>
+    <title>Vogel's Showreel</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar container-inline container-block">
             <div class="navbar-brand">
-                VogeauEdits
+                VogelEdits
             </div>
             <div class="navbar-links">
                 <ul>
@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class="hero-item">
-                <p>Current UX/Interactive Designer <span>@Amazon</span></p>
-                <!-- <p>Current UX/Interactive Designer <span>@Amazon</span></p> -->
+                <p>Head of Video Production <span>@NASR Esports</span></p>
+                <p>Freelance Video Editor <span>@Dragonfruit Media</span></p>
             </div>
             <hr>
         </section>
@@ -62,7 +62,7 @@
                 <div class="videos-container grid-container">
                     <div class="video-item grid-item">
                         <div class="grid-image">
-                            <img src="./assets/images/01.gif" alt="Image 01">
+                            <video width="100%" height="100%" src="./assets/videos/_video_01.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="video-item grid-item">
                         <div class="grid-image">
-                            <img src="./assets/images/02.gif" alt="Image 02">
+                            <video width="100%" height="100%" src="./assets/videos/_video_02.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -92,38 +92,40 @@
                             <p>Spotify Redesign, 2021</p>
                         </div>
                     </div>
+
+                    <!-- Promos and Teasers -->
+                    <!-- https://www.youtube.com/embed/cBz7_MlKvJc ✅ -->
+                    <!-- https://www.youtube.com/embed/Yhu1nJXinzE ✅ -->
+                    <!-- https://player.vimeo.com/video/757525893?h=a33a388097 -->
+                    <!-- https://player.vimeo.com/video/789237498?h=8d791094dd -->
+                    <!--  -->
+
+                    <!-- Content Editing -->
+                    <!-- https://drive.google.com/file/d/1ip4ah1IRG369TQjuHAI3vBHcIXQOYWlf/preview -->
+                    <!-- https://drive.google.com/file/d/1euoYnad-rp_7WnachaZryjMRzvzrwULq/preview -->
+                    <!--  -->
+
+                    <!-- Shorts -->
+                    <!-- https://www.youtube.com/embed/0nvQZQ3VvoY ✅ -->
+                    <!-- https://www.youtube.com/embed/krzMJQLL61Q ✅ -->
+                    <!--  -->
+
                 </div>
             </section>
             <section id="shorts">
                 <h2>Shorts</h2>
-                <div class="videos-container grid-container">
-                    <div class="video-item grid-item">
+                <div class="grid-container shorts-container">
+                    <div class="grid-item video-item">
                         <div class="grid-image">
-                            <img src="./assets/images/01.gif" alt="Image 01">
+                            <video width="100%" height="100%" src="./assets/videos/_short_01.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
                         </div>
                     </div>
-                    <div class="video-item grid-item">
+                    <div class="grid-item video-item">
                         <div class="grid-image">
-                            <img src="./assets/images/02.gif" alt="Image 02">
-                        </div>
-                        <div class="grid-body">
-                            <p>Spotify Redesign, 2021</p>
-                        </div>
-                    </div>
-                    <div class="video-item grid-item">
-                        <div class="grid-image">
-                            <img src="./assets/images/03.png" alt="Image 03">
-                        </div>
-                        <div class="grid-body">
-                            <p>Spotify Redesign, 2021</p>
-                        </div>
-                    </div>
-                    <div class="video-item grid-item">
-                        <div class="grid-image">
-                            <img src="./assets/images/04.jpg" alt="Image 04">
+                            <video width="100%" height="100%" src="./assets/videos/_short_01.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -131,28 +133,62 @@
                     </div>
                 </div>
             </section>
-            <hr>
-            <section id="get-in-touch">
-                <h2>Get in touch</h2>
-                <form action="#">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <input type="text" id="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="message" placeholder="Enter Message" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" form>Submit</button>
-                    </div>
-                </form>
-            </section>
+        </div>
+        <div class="container-inline">
             <hr>
         </div>
+        <section id="get-in-touch" class="container-block container-inline">
+            <h2>Get in touch</h2>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required autocomplete="off">
+                    <input type="text" id="email" placeholder="Email Address" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="message" placeholder="Enter Message" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <button type="submit" form>Submit</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="featured" class="container-block container-inline">
+            <h2>Featured Work</h2>
+            <div class="videos-container grid-container">
+                <div class="video-item grid-item">
+                    <div class="grid-image">
+                        <img src="./assets/images/01.gif" alt="Image 01">
+                    </div>
+                    <div class="grid-body">
+                        <p>Spotify Redesign, 2021</p>
+                    </div>
+                </div>
+                <div class="video-item grid-item">
+                    <div class="grid-image">
+                        <img src="./assets/images/02.gif" alt="Image 02">
+                    </div>
+                    <div class="grid-body">
+                        <p>Spotify Redesign, 2021</p>
+                    </div>
+                </div>
+                <div class="video-item grid-item">
+                    <div class="grid-image">
+                        <img src="./assets/images/03.png" alt="Image 03">
+                    </div>
+                    <div class="grid-body">
+                        <p>Spotify Redesign, 2021</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <div class="container-inline container-block">
+        <hr>
+    </div>
     <footer class="container-inline container-block">
         <div class="copyrights">
-            Copyright &copy; 2023 Abdulrahman Almonzer
+            Copyright &copy; 2023 Abdulrahman Almonzer | Created by <a href="https://Instagram.com/nourbeh_">Nourbeh</a>
         </div>
         <div class="contact-media">
             <ul>

@@ -184,16 +184,16 @@ hr {
 /* #endregion */
 
 /* #region Videos Section */
-#videos section {
+section {
     padding-block: 32px;
 }
 
-#videos section h2 {
+section h2 {
     width: fit-content;
     margin-bottom: 16px;
 }
 
-#videos section h2::after {
+section h2::after {
     content: "";
     display: inline-block;
     width: 32px;
@@ -213,17 +213,46 @@ hr {
     gap: 64px 32px;
 }
 
+.shorts-container {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (width < 1024px) {
+    .shorts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width < 525px) {
+    .shorts-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .grid-item {
     display: grid;
     grid-template-rows: 1fr;
     min-height: 300px;
 }
 
+.shorts-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.grid-item {
+    flex-basis: 200px;
+}
+
 .grid-image {
     height: 100%;
 }
 
-.grid-image img {
+/* .shorts-container .grid-image {
+    height: 600px;
+} */
+
+.grid-image :is(img, video) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -271,6 +300,25 @@ footer>div {
 
 .contact-media ul li:hover::after {
     width: 32px;
+}
+
+.copyrights a {
+    position: relative;
+}
+
+.copyrights a::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 500ms var(--transition-type);
+}
+
+.copyrights a:hover::after {
+    width: 100%;
 }
 
 /* #endregion */
