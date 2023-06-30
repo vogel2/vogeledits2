@@ -34,22 +34,6 @@ const elements = [
 
 elements.forEach((element) => observer.observe(element));
 
-// Blue line animation
-const styleSheet = document.styleSheets[0];
-const rule = styleSheet.cssRules[23];
-
-setTimeout(
-    () =>
-        /* 
-        if screen width is less than 445px
-        then: 7 characters
-        else: All the name 
-        */
-        rule.style.width =
-        screen.width < 445 ? '7ch' : '100%',
-    1500 // Milliseconds
-);
-
 // Disabling right click on hero GIF
 const video = document.querySelector('.hero-avatar video')
 video.addEventListener('contextmenu', e => e.preventDefault())
@@ -62,3 +46,14 @@ shortsVideo.forEach(video => {
     })
 })
 video.addEventListener('fullscreenchange', e => e.preventDefault())
+
+// Loader
+const loader = document.querySelector('.loader')
+
+setTimeout(() => loader.classList.toggle('hidden'), 3000);
+
+// Blue line animation
+const styleSheet = document.styleSheets[0];
+const rule = styleSheet.cssRules[22];
+
+setTimeout(() => rule.style.width = screen.width < 445 ? '7ch' : '100%', 3500)

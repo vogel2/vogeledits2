@@ -17,6 +17,9 @@
     --primary-hover: hsl(241, 74%, 48%);
     --dark-color: hsl(0, 0%, 0%);
     --light-color: hsl(0, 0%, 96%);
+
+    --font-paragraph: "SF Pro";
+    --font-display: "NY Medium";
 }
 
 /* #region Generics */
@@ -35,12 +38,8 @@ html {
     color: var(--light-color);
 }
 
-html.light-theme {
-    color-scheme: light;
-}
-
 body {
-    font-family: "SF Pro", sans-serif;
+    font-family: var(--font-paragraph);
 }
 
 .container-inline {
@@ -62,12 +61,12 @@ button {
 }
 
 :is(h1, h2, h3, h4) {
-    font-family: "NY Medium";
+    font-family: var(--font-display);
     font-weight: normal;
 }
 
 :is(:not((h1, h2, h3, h4))) {
-    font-family: "SF Pro";
+    font-family: var(--font-paragraph);
 }
 
 hr {
@@ -126,7 +125,6 @@ hr {
 
 #hero h1 {
     font-size: clamp(2.25rem, calc(2.03rem + 1.25vw), 3.00rem);
-    ;
     width: min(800px, 100%);
     line-height: 1.5;
 }
@@ -203,10 +201,6 @@ section h2::after {
     margin-bottom: 4px;
 }
 
-.light-theme #videos section h2::after {
-    background: var(--dark-color);
-}
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
@@ -214,7 +208,7 @@ section h2::after {
 }
 
 .shorts-container {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 @media (width < 1024px) {
@@ -223,7 +217,7 @@ section h2::after {
     }
 }
 
-@media (width < 525px) {
+@media (width < 767px) {
     .shorts-container {
         grid-template-columns: 1fr;
     }
@@ -235,11 +229,6 @@ section h2::after {
     min-height: 300px;
 }
 
-.shorts-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .grid-item {
     flex-basis: 200px;
 }
@@ -248,14 +237,14 @@ section h2::after {
     height: 100%;
 }
 
-/* .shorts-container .grid-image {
-    height: 600px;
-} */
-
 .grid-image :is(img, video) {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.grid-image video.contained {
+    object-fit: contain;
 }
 
 .grid-body {
@@ -346,9 +335,9 @@ form {
     gap: 32px 64px;
 }
 
-.form-group>input {
+.form-group>:is(input, input::placeholder) {
     all: unset;
-    font-family: "SF Pro";
+    font-family: var(--font-paragraph);
     flex: 1 1 auto;
     padding: 16px;
     border-bottom: 2px solid grey;
@@ -358,6 +347,10 @@ form {
 
 .form-group>input:focus {
     border-bottom: 2px solid var(--light-color);
+}
+
+.form-group>input:focus::placeholder {
+    color: var(--light-color);
 }
 
 .form-group:has(button[type="submit"]) {
@@ -418,7 +411,7 @@ form {
 
     :is(.navbar-drawer, .navbar-toggler) {
         display: block;
-        background: var(--primary-color);
+        background: var(--dark-color);
     }
 
     .navbar-toggler {
@@ -449,11 +442,12 @@ form {
         width: 100%;
         height: var(--drawer-height);
 
-        position: absolute;
+        position: fixed;
         top: calc(var(--drawer-height) * -1);
         left: 0;
 
-        border-bottom: 64px solid var(--light-color);
+
+        border-bottom: 32px solid var(--light-color);
 
         transition: all 250ms var(--transition-type);
     }
@@ -461,6 +455,7 @@ form {
     .navbar-drawer[enabled] {
         top: 0;
         box-shadow: 0 0 1200px 1200px hsl(0, 0%, 12%, 0.9);
+        z-index: 2;
     }
 
     .navbar-drawer .navbar-links {
@@ -487,10 +482,6 @@ form {
     .navbar-drawer .navbar-toggler span:last-child {
         rotate: -45deg;
     }
-
-    .light-theme .navbar-drawer .navbar-toggler {
-        background: black;
-    }
 }
 
 @media (width < 525px) {
@@ -504,3 +495,24 @@ form {
 }
 
 /* #endregion */
+
+.loader {
+    --border-bottom-height: 32px;
+    position: fixed;
+    background: var(--dark-color);
+    inset: 0;
+    z-index: 3;
+    display: grid;
+    place-content: center;
+    height: calc(100% + var(--border-bottom-height));
+
+    font-size: clamp(2.25rem, calc(2.03rem + 1.25vw), 3.00rem);
+    border-bottom: var(--border-bottom-height) solid var(--primary-color);
+    transition: top 500ms var(--transition-type);
+
+    font-family: var(--font-display);
+}
+
+.loader.hidden {
+    top: calc(-100vh - var(--border-bottom-height));
+}
