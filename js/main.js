@@ -57,3 +57,29 @@ const styleSheet = document.styleSheets[0];
 const rule = styleSheet.cssRules[22];
 
 setTimeout(() => rule.style.width = screen.width < 445 ? '7ch' : '100%', 3500)
+
+// Handle contact form
+var form = document.getElementById("contact-form");
+var submitButton = document.getElementById("submit-button");
+
+async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            form.reset()
+            submitButton.innerHTML = 'Submitted'
+            submitButton.classList.add('submitted')
+        } else {
+            response.json().then(data => console.log(data))
+        }
+    }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+}
+form.addEventListener("submit", handleSubmit)
+

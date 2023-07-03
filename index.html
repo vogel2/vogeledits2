@@ -61,7 +61,7 @@
         </section>
         <div id="videos" class="container-inline container-block">
             <section id="content-editing">
-                <h2>Content Editing</h2>
+                <h2>Promos & Teasers</h2>
                 <div class="videos-container grid-container">
                     <div class="video-item grid-item">
                         <div class="grid-image">
@@ -81,7 +81,7 @@
                     </div>
                     <div class="video-item grid-item">
                         <div class="grid-image">
-                            <img src="./assets/images/03.png" alt="Image 03">
+                            <video width="100%" height="100%" src="./assets/videos/_video_05.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -89,30 +89,33 @@
                     </div>
                     <div class="video-item grid-item">
                         <div class="grid-image">
-                            <img src="./assets/images/04.jpg" alt="Image 04">
+                            <video width="100%" height="100%" src="./assets/videos/_video_06.mp4" controls autoplay muted></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
                         </div>
                     </div>
-
-                    <!-- Promos and Teasers -->
-                    <!-- https://www.youtube.com/embed/cBz7_MlKvJc ✅ -->
-                    <!-- https://www.youtube.com/embed/Yhu1nJXinzE ✅ -->
-                    <!-- https://player.vimeo.com/video/757525893?h=a33a388097 -->
-                    <!-- https://player.vimeo.com/video/789237498?h=8d791094dd -->
-                    <!--  -->
-
-                    <!-- Content Editing -->
-                    <!-- https://drive.google.com/file/d/1ip4ah1IRG369TQjuHAI3vBHcIXQOYWlf/preview -->
-                    <!-- https://drive.google.com/file/d/1euoYnad-rp_7WnachaZryjMRzvzrwULq/preview -->
-                    <!--  -->
-
-                    <!-- Shorts -->
-                    <!-- https://www.youtube.com/embed/0nvQZQ3VvoY ✅ -->
-                    <!-- https://www.youtube.com/embed/krzMJQLL61Q ✅ -->
-                    <!--  -->
-
+                </div>
+            </section>
+            <section id="content-editing">
+                <h2>Content Editing</h2>
+                <div class="videos-container grid-container">
+                    <div class="video-item grid-item">
+                        <div class="grid-image">
+                            <video width="100%" height="100%" src="./assets/videos/_video_03.mp4" controls autoplay muted></video>
+                        </div>
+                        <div class="grid-body">
+                            <p>Spotify Redesign, 2021</p>
+                        </div>
+                    </div>
+                    <div class="video-item grid-item">
+                        <div class="grid-image">
+                            <video width="100%" height="100%" src="./assets/videos/_video_04.mp4" controls autoplay muted></video>
+                        </div>
+                        <div class="grid-body">
+                            <p>Spotify Redesign, 2021</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="shorts">
@@ -120,7 +123,7 @@
                 <div class="grid-container shorts-container">
                     <div class="grid-item video-item">
                         <div class="grid-image">
-                            <video width="100%" height="100%" src="./assets/videos/_short_01.mp4" controls autoplay muted></video>
+                            <video width="100%" height="100%" src="./assets/videos/_short_01.mp4" controls autoplay muted loop></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -128,7 +131,7 @@
                     </div>
                     <div class="grid-item video-item">
                         <div class="grid-image">
-                            <video width="100%" height="100%" src="./assets/videos/_short_01.mp4" controls autoplay muted></video>
+                            <video width="100%" height="100%" src="./assets/videos/_short_02.mp4" controls autoplay muted loop></video>
                         </div>
                         <div class="grid-body">
                             <p>Spotify Redesign, 2021</p>
@@ -142,18 +145,20 @@
         </div>
         <section id="get-in-touch" class="container-block container-inline">
             <h2>Get in touch</h2>
-            <form action="#">
+
+            <form action="https://formspree.io/f/moqzkray" id="contact-form" method="post">
                 <div class="form-group">
-                    <input type="text" id="name" placeholder="Your Name" required autocomplete="off">
-                    <input type="text" id="email" placeholder="Email Address" required autocomplete="off">
+                    <input type="text" name="name" placeholder="Your Name" required autocomplete="off">
+                    <input type="email" name="email" placeholder="Email Address" required autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input type="text" id="message" placeholder="Enter Message" required autocomplete="off">
+                    <input type="text" role="textbox" name="message" placeholder="Enter Message" required autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" form>Submit</button>
+                    <button type="submit" id="submit-button">Submit</button>
                 </div>
             </form>
+
         </section>
 
         <section id="featured" class="container-block container-inline">

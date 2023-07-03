@@ -14,6 +14,7 @@
 :root {
     --transition-type: cubic-bezier(0.44, 0.31, 0.4, 0.63);
     --primary-color: hsl(241, 100%, 58%);
+    --success-color: hsl(123, 50%, 46%);
     --primary-hover: hsl(241, 74%, 48%);
     --dark-color: hsl(0, 0%, 0%);
     --light-color: hsl(0, 0%, 96%);
@@ -208,7 +209,7 @@ section h2::after {
 }
 
 .shorts-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 @media (width < 1024px) {
@@ -362,15 +363,25 @@ form {
     background: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    transition: background 500ms var(--transition-type);
 }
 
 .form-group button[type="submit"]:hover {
     background: var(--primary-hover);
 }
 
+.form-group button[type="submit"].submitted {
+    background: var(--success-color);
+}
+
 .form-group button[type="submit"]:disabled {
     cursor: not-allowed;
     background: grey;
+}
+
+#form-status {
+    text-align: center;
 }
 
 /* #endregion */
