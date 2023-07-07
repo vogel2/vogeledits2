@@ -50,7 +50,12 @@ video.addEventListener('fullscreenchange', e => e.preventDefault())
 // Loader
 const loader = document.querySelector('.loader')
 
-setTimeout(() => loader.classList.toggle('hidden'), 3000);
+setTimeout(() => {
+    window.scrollTo({
+        top: 0
+    })
+    loader.classList.toggle('hidden')
+}, 3000);
 
 // Blue line animation
 const styleSheet = document.styleSheets[0];
@@ -82,4 +87,7 @@ async function handleSubmit(event) {
     });
 }
 form.addEventListener("submit", handleSubmit)
+
+// On reloading, it navigates to index.html
+if (location.href.includes("#")) location.assign("/")
 
