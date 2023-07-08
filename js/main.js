@@ -51,9 +51,7 @@ video.addEventListener('fullscreenchange', e => e.preventDefault())
 const loader = document.querySelector('.loader')
 
 setTimeout(() => {
-    window.scrollTo({
-        top: 0
-    })
+    window.scrollTo({ top: 0 })
     loader.classList.toggle('hidden')
 }, 3000);
 
