@@ -426,6 +426,7 @@ form {
     }
 
     .navbar-toggler {
+        background: transparent;
         width: 48px;
         height: 48px;
         display: flex;
