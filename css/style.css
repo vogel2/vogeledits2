@@ -13,7 +13,7 @@
 
 :root {
     --transition-type: cubic-bezier(0.44, 0.31, 0.4, 0.63);
-    --primary-color: hsl(241, 100%, 58%);
+    --primary-color: hsl(237, 77%, 45%);
     --success-color: hsl(123, 50%, 46%);
     --primary-hover: hsl(241, 74%, 48%);
     --dark-color: hsl(0, 0%, 0%);
@@ -204,7 +204,8 @@ section h2::after {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
     gap: 64px 32px;
 }
 
@@ -219,7 +220,7 @@ section h2::after {
 }
 
 @media (width < 767px) {
-    .shorts-container {
+    .grid-container {
         grid-template-columns: 1fr;
     }
 }
