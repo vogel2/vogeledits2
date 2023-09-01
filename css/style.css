@@ -534,6 +534,7 @@ form {
   right: 0;
   bottom: 0;
   top: 0px;
+  overflow: hidden;
 }
 .shop-display {
   margin: "0";
