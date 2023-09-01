@@ -30,7 +30,7 @@ window.route = route;
 
 handleLocation();
 function runShopScript() {
-  document.title = "Vogel's Shop";
+  document.title = "vogel's Shop";
   const html = document.querySelector("html");
   const body = document.querySelector("body");
   html.classList.add("shop-display");
@@ -38,7 +38,7 @@ function runShopScript() {
 }
 
 function runPortfolioScript() {
-  document.title = "Vogel's Portfolio";
+  document.title = "vogel's Portfolio";
   const html = document.querySelector("html");
   const body = document.querySelector("body");
   html.classList.remove("shop-display");
