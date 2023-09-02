@@ -100,7 +100,7 @@ function runPortfolioScript() {
   setTimeout(() => {
     window.scrollTo({ top: 0 });
     loader.classList.toggle("hidden");
-  }, 3000);
+  }, 1500);
 
   // Blue line animation
   const styleSheet = document.styleSheets[0];
