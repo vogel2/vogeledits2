@@ -558,6 +558,7 @@ form {
   width: 200px;
   height: 200px;
   margin: 25px;
+  margin-bottom: 15px;
   transition: all 500ms var(--transition-type);
 
 }
