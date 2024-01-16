@@ -77,6 +77,7 @@ function runPortfolioScript() {
     ...document.querySelectorAll(".grid-item > div"),
     ...document.querySelectorAll("#get-in-touch > *"),
     ...document.querySelectorAll("hr:not(:last-of-type)"),
+    ...document.querySelectorAll(".clients-item"),
   ];
 
   elements.forEach((element) => observer.observe(element));
