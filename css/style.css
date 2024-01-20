@@ -555,14 +555,17 @@ form {
 .clients-item {
   border-radius: 50%;
   overflow: hidden;
-  width: 200px;
-  height: 200px;
-  margin: 25px;
+  width: 170px;
+  height: 170px;
+  margin: 30px;
   margin-bottom: 15px;
   transition: all 500ms var(--transition-type);
-
 }
 
+.clients-item:hover {
+  transform: scale(1.1);
+  transition: all 500ms var(--transition-type);
+}
 
 .clients-image {
   width: 100%;
@@ -579,4 +582,46 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.gbtn {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+  padding: 12px 20px;
+  border-radius: 15px;
+}
+
+.gbtn span {
+  position: relative;
+  z-index: 1;
+
+}
+
+.gbtn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: #272727;
+  border-radius: 14px;
+  transition: 0.5s;
+}
+
+.gbtn:hover::before {
+  opacity: 0.7;
+}
+.gbtn::after {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  background: linear-gradient(90deg, #0ce39a, #69007f, #fc0987);
+  border-radius: 9px;
+  transition: 0.5s;
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.gbtn:hover::after {
+  opacity: 1;
 }
